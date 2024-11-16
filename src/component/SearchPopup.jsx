@@ -16,7 +16,6 @@ export function SearchPopup() {
   const debouncedSetSearchTerm = useMemo(() => debounce(setSearchTerm, 300), []);
 
   useEffect(() => {
-    // Cleanup the debounce function when the component is unmounted or searchTerm changes
     return () => debouncedSetSearchTerm.cancel();
   }, [debouncedSetSearchTerm]);
 
@@ -70,7 +69,7 @@ export function SearchPopup() {
               className="flex items-center space-x-4 hover:bg-divineGreen hover:text-gray-800 p-3 sm:p-4 transition-colors duration-200 cursor-pointer"
             >
               <img
-                src={GetImages(`../assets/images/${item.image}`)}
+                src={item.image}
                 alt={item.name}
                 className="w-16 h-16 sm:w-20 sm:h-20 rounded"
               />

@@ -45,7 +45,7 @@ function ImgPopup() {
         </div>
 
         <div className="md:col-span-4 mt-4 md:mt-0">
-          <img className="w-full rounded-lg" src={GetImages(`../assets/images/${selectedItem.image}`)} alt="img" />
+          <img className="w-full rounded-lg" src={selectedItem.image} alt="img" />
         </div>
       </div>
     </div>

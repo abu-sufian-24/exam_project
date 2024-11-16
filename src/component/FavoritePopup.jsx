@@ -21,7 +21,7 @@ function FavoritePopup() {
           favoriteItem.map((cart) => (
             <div key={cart.id} className="border border-[#595959] p-4 mt-4 mb-4 rounded shadow cursor-pointer">
               <div>
-                <img src={GetImages(`../assets/images/${cart.image}`)} alt="img" className="w-full h-auto" />
+                <img src={cart.image} alt="img" className="w-full h-auto" />
               </div>
               <div>
                 <h2 className="text-[12px] font-sans mt-2 text-white">{cart.name}</h2>

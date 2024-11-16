@@ -37,7 +37,7 @@ function AddToCartPopup() {
                 cartItem.map(cart => (
                   <tr key={cart.id} className="border-b border-gray-700">
                     <td className="p-3 flex items-center space-x-3">
-                      <img className="w-14" src={GetImages(`../assets/images/${cart.image}`)} alt="Product" />
+                      <img className="w-14" src={cart.image} alt="Product" />
                       <div>
                         <h3 className="text-[16px] hidden lg:block">{cart.name}</h3>
                         <p className="text-[14px] mt-1 text-gray-400 hidden lg:block">{cart.author}</p>
