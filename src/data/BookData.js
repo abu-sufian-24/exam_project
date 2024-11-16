@@ -3,7 +3,7 @@ function BookData() {
     {
       id: '01',
       name: 'The Blacked Hunter',
-      image: '1.jpg',
+      image: `${new URL('../assets/images/1.jpg', import.meta.url)}`,
       rating: 3,
       price: 150,
       author: 'John Doe',

@@ -95,7 +95,7 @@ function GellaryItems({ filter }) {
             <div onClick={() => handleImageClick(gelary)}>
               <img
                 className="w-full h-auto"
-                src={GetImages(`../assets/images/${gelary.image}`)}
+                src={gelary.image}
                 alt={gelary.name || 'Book image'}
               />
             </div>
