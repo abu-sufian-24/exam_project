@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.no-scroll {
+  overflow: hidden;
+}
+.custom-modal {
+  max-width: 400px !important;
+  max-height: 300px !important;
+  margin: auto;
+}
