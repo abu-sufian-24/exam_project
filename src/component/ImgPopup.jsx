@@ -1,4 +1,4 @@
-import { GetImages } from "../helpreFunction/GetImages";
+
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import { useContext } from "react";

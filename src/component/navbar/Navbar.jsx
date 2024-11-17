@@ -20,8 +20,8 @@ const Navbar = () => {
           </div>
           <div onClick={() => setShowAddToCartPopup(true)} className="w-8 h-8 md:w-10 md:h-10 bg-customGreen rounded flex justify-center items-center border-[#91EFD0] cursor-pointer relative">
             <BsCart3 className="text-divineGreen text-xl md:text-2xl" />
-            <div className="absolute top-0 left-7 bg-gray-600 dark:bg-white rounded-full w-5 h-5 flex items-center justify-center">
-              <span className="dark:text-rose-700 text-white text-xs">{cartItem.length}</span>
+            <div className="absolute top-0 left-7 bg-white rounded-full w-5 h-5 flex items-center justify-center">
+              <span className="text-rose-700  text-xs">{cartItem.length}</span>
             </div>
           </div>
         </div>

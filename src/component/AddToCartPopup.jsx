@@ -2,23 +2,46 @@ import { RxCross2 } from "react-icons/rx";
 import { FaMinus } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import { HiOutlinePlusSmall } from "react-icons/hi2";
-import { GetImages } from "../helpreFunction/GetImages";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { BookContext } from "../context";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 
 function AddToCartPopup() {
-  const { cartItem, setShowAddToCartPopup, handleAlertPopup, handleQuantityChange } = useContext(BookContext);
+  const { cartItem, setCartItem, setShowAddToCartPopup, handleAlertPopup, handleQuantityChange } =
+    useContext(BookContext);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const calculateItemTotal = (price, quantity) => price * quantity;
   const calculateSubtotal = () =>
     cartItem.reduce((acc, item) => acc + calculateItemTotal(item.price, item.Quantity), 0);
 
+  const handleCheckout = () => {
+    if (cartItem.length > 0) {
+      setCartItem([]);
+      setShowSuccess(true);
+      setTimeout(() => setShowSuccess(false), 3000);
+    }
+  };
+
   return (
-    <div className="bg-gray-800 max-w-[1000px] mx-auto py-5 px-4 rounded">
+    <div className="bg-gray-800 max-w-[1000px] mx-auto py-5 px-4 rounded relative">
       <div className="relative mb-4">
         <h2 className="text-white text-center text-2xl">Your Cart</h2>
-        <RxCross2 onClick={() => setShowAddToCartPopup(false)} className="text-gray-300 text-2xl absolute top-0 right-2 cursor-pointer" />
+        <RxCross2
+          onClick={() => setShowAddToCartPopup(false)}
+          className="text-gray-300 text-2xl absolute top-0 right-2 cursor-pointer"
+        />
       </div>
+
+      {/* Success Message */}
+      {showSuccess && (
+        <div className="absolute top-20 left-1/2 transform -translate-x-1/2 bg-divineGreen px-10 py-6 rounded-lg shadow-lg flex items-center justify-center">
+          <div className="w-full max-w-[400px] overflow-hidden bg-white p-6 rounded-lg shadow-lg text-center">
+            <AiOutlineCheckCircle className="text-4xl text-rose-600 mx-auto mb-3" />
+            <span className="text-2xl text-gray-600">Your Order Is Successfully Placed!</span>
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-col lg:flex-row justify-between">
         {/* Cart Items Section */}
@@ -63,13 +86,19 @@ function AddToCartPopup() {
                     </td>
                     <td className="p-3">${calculateItemTotal(cart.price, cart.Quantity)}</td>
                     <td className="p-3 text-center text-2xl">
-                      <MdDelete onClick={() => handleAlertPopup(cart.id)} className="text-white cursor-pointer" />
+                      <MdDelete
+                        onClick={() => handleAlertPopup(cart.id)}
+                        className="text-white cursor-pointer"
+                      />
                     </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="5" className="text-center text-rose-500 py-8 font-bold text-xl sm:text-3xl">
+                  <td
+                    colSpan="5"
+                    className="text-center text-rose-500 py-8 font-bold text-xl sm:text-3xl"
+                  >
                     No Data Found
                   </td>
                 </tr>
@@ -95,7 +124,10 @@ function AddToCartPopup() {
               <span className="text-white font-semibold">${calculateSubtotal()}</span>
             </div>
           </div>
-          <button className="bg-[#009A67] text-white w-full lg:w-[90%] py-2 mt-4 rounded-lg">
+          <button
+            onClick={handleCheckout}
+            className="bg-[#009A67] text-white w-full lg:w-[90%] py-2 mt-4 rounded-lg"
+          >
             Checkout
           </button>
         </div>

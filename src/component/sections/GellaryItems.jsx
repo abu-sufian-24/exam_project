@@ -1,6 +1,5 @@
 import { FaStar } from 'react-icons/fa';
 import { MdOutlineFavoriteBorder, MdFavorite } from 'react-icons/md';
-import { GetImages } from '../../helpreFunction/GetImages';
 import { BookData } from '../../data/BookData';
 import { useContext, useMemo } from 'react';
 import { BookContext } from '../../context';
@@ -48,10 +47,6 @@ function GellaryItems({ filter }) {
       setCartItem([...cartItem, { ...gelary, Quantity: 1 }]);
     }
   };
-
-  // const onRemoveFromCart = gelary => {
-  //   setCartItem(cartItem.filter(item => item.id !== gelary.id));
-  // };
 
   const onIncreaseQuantity = gelary => {
     setCartItem(

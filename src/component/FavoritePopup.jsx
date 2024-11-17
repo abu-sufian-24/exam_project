@@ -1,7 +1,6 @@
 import { MdDelete } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { FaStar } from 'react-icons/fa';
-import { GetImages } from "../helpreFunction/GetImages";
 import { useContext } from "react";
 import { BookContext } from "../context";
 

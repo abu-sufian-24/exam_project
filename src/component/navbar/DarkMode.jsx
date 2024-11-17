@@ -21,9 +21,9 @@ function DarkMode() {
   return (
     <div onClick={() => setTheme(theme === "light" ? "dark" : "light")} className="cursor-pointer">
       {theme === "light" ? (
-        <LuMoon className="text-divineGreen text-xl md:text-2xl" /> // Moon icon for dark mode
+        <LuMoon className="text-divineGreen text-xl md:text-2xl" />
       ) : (
-        <LuSun className="text-divineGreen text-xl md:text-2xl" /> // Sun icon for light mode
+        <LuSun className="text-divineGreen text-xl md:text-2xl" />
       )}
     </div>
   );

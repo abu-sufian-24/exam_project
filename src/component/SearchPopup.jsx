@@ -2,17 +2,13 @@ import { useState, useMemo, useContext, useEffect } from "react";
 import { debounce } from "lodash";
 import { CiSearch } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
-
-import { GetImages } from "../helpreFunction/GetImages";
 import { BookData } from "../data/BookData";
 import { BookContext } from "../context";
 
 export function SearchPopup() {
   const { setSearchPopup, handleOpenImgPopup } = useContext(BookContext);
-  const bookData = BookData(); // Assuming BookData is a function that provides the books data.
+  const bookData = BookData();
   const [searchTerm, setSearchTerm] = useState("");
-
-  // Debounced version of setSearchTerm to delay the state update
   const debouncedSetSearchTerm = useMemo(() => debounce(setSearchTerm, 300), []);
 
   useEffect(() => {
