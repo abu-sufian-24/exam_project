@@ -87,12 +87,20 @@ function GellaryItems({ filter }) {
             key={gelary.id}
             className="border border-[#595959] dark:border-divineGreen p-4 mt-2 mb-2 rounded shadow cursor-pointer"
           >
-            <div onClick={() => handleImageClick(gelary)}>
+            <div
+              onClick={() => handleImageClick(gelary)}
+              className="relative group overflow-hidden rounded-lg shadow-lg"
+            >
               <img
-                className="w-full h-auto"
+                className="w-full h-auto transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:brightness-75"
                 src={gelary.image}
                 alt={gelary.name || 'Book image'}
               />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/70 to-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out flex items-center justify-center">
+                <p className="text-white text-lg font-semibold drop-shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-500">
+                  View Details
+                </p>
+              </div>
             </div>
             <div>
               <h2 className="text-[12px] mt-2 text-white dark:text-gray-800">
