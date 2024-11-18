@@ -3,7 +3,8 @@ import { GoSearch } from "react-icons/go";
 import { FaFire } from "react-icons/fa";
 import { FiFolderPlus } from "react-icons/fi";
 import { MdOutlineUpcoming, MdFavoriteBorder } from "react-icons/md";
-import { HiOutlineMenu } from "react-icons/hi";
+import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
+
 import { BookContext } from "../../context";
 
 function LeftSideBar({ onFilterChange }) {
@@ -28,8 +29,13 @@ function LeftSideBar({ onFilterChange }) {
         onClick={() => setIsOpen(!isOpen)}
         className="lg:hidden p-2 fixed z-50 dark:bg-white bg-gray-800 text-divineGreen rounded focus:outline-none top-4 left-2"
       >
-        <HiOutlineMenu className="text-2xl" />
+        {isOpen ? (
+          <HiOutlineX className="text-2xl text-rose-600" />
+        ) : (
+          <HiOutlineMenu className="text-2xl" />
+        )}
       </button>
+
 
       {/* Sidebar content */}
       <div className={`fixed left-0 top-16 h-screen p-4 bg-white dark:bg-gray-800 shadow-lg z-40 transition-all ${isOpen ? "w-3/4" : "w-0"} lg:w-1/5 overflow-hidden`}>

@@ -1,4 +1,3 @@
-// src/reducer/Reducer.js
 const initialState = {
   cartItem: [],
   favoriteItem: [],

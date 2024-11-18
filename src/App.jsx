@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useReducer, useEffect } from 'react';
+import { useReducer, useEffect } from 'react';
 import { BookContext } from './context';
 import Navbar from './component/navbar/Navbar';
 import MeinSection from './component/sections/MeinSection';
